@@ -5,13 +5,13 @@ if (isset($_POST['update'])) {
 
     $idT = intval($_POST['idT']);
     $idB = intval($_POST['idB']);
-    $tanggal = strtotime($_POST['tanggal']);
+    $tanggal = $_POST['tanggal'];
     $tanggal = date('Y-m-d', $tanggal);
     $total = intval($_POST['total']);
 
 
     $query = "UPDATE transaksi
-    SET id_barang = $idB, total = $total
+    SET id_barang = $idB, total = $total, tanggal = '$tanggal'
     WHERE id_barang = $idT";
 
     $result2 = mysqli_query($koneksi, $query);
